@@ -1,7 +1,11 @@
 version: '0.1.0'
 services:
-  web:
-    build: ./web
+  webpage:
+    build: ./webpage
+  webapp:
+    build: ./webapp
+  adminpage:
+    build: ./adminpage
   api:
     build: ./api
   redis:
