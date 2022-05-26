@@ -1,0 +1,23 @@
+[package]
+name = "bamium-server"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "bamium-server"
+path = "./src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix = "0.13.0"
+actix-cors = "0.6.1"
+actix-web = "4.0.1"
+actix-web-actors = "4.1.0"
+async-stream = "0.3.3"
+futures = "0.3.21"
+juniper = { git = "https://github.com/graphql-rust/juniper", package = "juniper", rev = "76b9caf" }
+juniper_actix = { git = "https://github.com/graphql-rust/juniper", package = "juniper_actix", rev = "76b9caf", features = ["subscriptions"] }
+juniper_graphql_ws = { git = "https://github.com/graphql-rust/juniper", package = "juniper_graphql_ws", rev = "76b9caf" }
+mongodb = "2.2.1"
+tokio = { version = "1.18.2", features = ["macros", "rt-multi-thread"] }

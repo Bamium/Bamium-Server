@@ -1,0 +1,21 @@
+FROM rust:latest
+
+RUN mkdir ./src
+
+COPY ../dummy.rs ./src
+
+COPY Cargo.lock .
+COPY Cargo.toml .
+
+RUN sed -i 's/main.rs/dummy.rs/' ./Cargo.toml
+
+RUN cargo build
+
+RUN sed -i 's/dummy.rs/main.rs/' ./Cargo.toml
+
+COPY . .
+
+RUN cargo build
+RUN mv ./target/debug/bamium-server ./bamium
+
+CMD [ "./bamium" ]

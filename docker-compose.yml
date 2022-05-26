@@ -1,0 +1,26 @@
+version: '0.1.0'
+services:
+  web:
+    build: ./web
+  api:
+    build: ./api
+  redis:
+    image: redis
+    volumes:
+      - ./data/redis:/data
+    environment:
+      - REDIS_PASSWORD=redis
+    restart: always
+  mongo:
+    image: mongo
+    volumes:
+      - ./data/mongo:/data
+    restart: always
+  ngnix:
+    image: nginx
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
