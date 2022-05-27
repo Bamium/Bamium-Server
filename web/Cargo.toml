@@ -1,0 +1,15 @@
+[package]
+name = "web"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "bamium-web"
+path = "./src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-files = "0.6.0"
+actix-web = { version = "4.0.1" }
+tokio = { version = "1.18.2", features = ["macros", "rt-multi-thread"] }

@@ -2,8 +2,8 @@ use super::Context;
 
 #[derive(juniper::GraphQLEnum, Clone, Copy)]
 enum ChannelType {
-    text,
-    voice,
+    Text,
+    Voice,
 }
 
 struct Channel {

@@ -1,19 +1,15 @@
 version: '0.1.0'
 services:
-  webpage:
-    build: ./webpage
-  webapp:
-    build: ./webapp
-  adminpage:
-    build: ./adminpage
+  web:
+    build: ./web
+    ports:
+      - "8080:8080"
   api:
     build: ./api
   redis:
     image: redis
     volumes:
       - ./data/redis:/data
-    environment:
-      - REDIS_PASSWORD=redis
     restart: always
   mongo:
     image: mongo

@@ -1,7 +1,7 @@
-mod message;
-mod user;
-mod role;
-mod channel;
+//mod message;
+//mod user;
+//mod role;
+//mod channel;
 
 #[derive(Clone)]
 pub struct Databases {

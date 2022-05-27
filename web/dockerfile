@@ -1,7 +1,5 @@
 FROM rust:latest
 
-EXPOSE 8080
-
 RUN apt-get install pkg-config libssl-dev
 
 RUN mkdir ./src
@@ -19,6 +17,6 @@ RUN sed -i 's/dummy.rs/main.rs/' ./Cargo.toml
 COPY . .
 
 RUN cargo build
-RUN mv ./target/debug/bamium-api ./bamium-api
+RUN mv ./target/debug/bamium-web ./bamium-web
 
-CMD [ "./bamium-api" ]
+CMD [ "./bamium-web" ]
