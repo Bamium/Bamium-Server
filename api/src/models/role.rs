@@ -1,7 +1,10 @@
 use crate::models::Permissions;
 
+use serde::{Serialize, Deserialize};
+
 use super::Context;
 
+#[derive(Serialize, Deserialize)]
 pub struct Role {
     id: i32,
     name: String,

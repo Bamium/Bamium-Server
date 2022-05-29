@@ -1,11 +1,14 @@
+use serde::{Serialize, Deserialize};
+
 use crate::models::role::Role;
 
 use super::Context;
 
-
+#[derive(Serialize, Deserialize)]
 pub struct User {
     id: i32,
     username: String,
+    email: String,
     pubkey: String,
     status: Option<String>,
     bio: Option<String>,

@@ -1,7 +1,8 @@
 use super::Context;
 
+use serde::{Serialize, Deserialize};
 
-
+#[derive(Serialize, Deserialize)]
 struct Message {
     id: i32,
     content: String,
