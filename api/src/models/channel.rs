@@ -1,11 +1,14 @@
 use super::Context;
 
-#[derive(juniper::GraphQLEnum, Clone, Copy)]
+use serde::{Serialize, Deserialize};
+
+#[derive(juniper::GraphQLEnum, Clone, Copy, Serialize, Deserialize)]
 enum ChannelType {
     Text,
     Voice,
 }
 
+#[derive(Serialize, Deserialize)]
 struct Channel {
     name: String,
     id: i32,

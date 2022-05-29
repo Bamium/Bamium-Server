@@ -1,11 +1,14 @@
-//mod message;
-//mod user;
-//mod role;
-//mod channel;
+use serde::{Serialize, Deserialize};
+
+pub mod message;
+pub mod user;
+pub mod role;
+pub mod channel;
 
 #[derive(Clone)]
 pub struct Databases {
-    pub db: mongodb::Client,
+    pub mongo: mongodb::Client,
+    pub redis: redis::Client,
 }
 
 #[derive(Clone)]
@@ -17,7 +20,7 @@ pub struct Context {
 impl juniper::Context for Context {}
 
 // Permissions
-#[derive(juniper::GraphQLEnum, Clone, Copy)]
+#[derive(juniper::GraphQLEnum, Clone, Copy, Serialize, Deserialize)]
 enum Permissions {
     Read,
     Write,

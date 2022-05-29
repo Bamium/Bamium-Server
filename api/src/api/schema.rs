@@ -2,8 +2,10 @@ use std::{pin::Pin, time::Duration};
 
 use futures::Stream;
 use juniper::{graphql_object, FieldError, graphql_subscription, graphql_value, RootNode};
+use mongodb::{bson::doc, options::FindOptions};
 
-use crate::models::Context;
+use crate::models::{Context, user::User};
+use crate::api::auth::authenticate;
 
 //Query
 pub struct Query;
@@ -21,8 +23,8 @@ pub struct Mutation;
 
 #[graphql_object(context = Context)]
 impl Mutation {
-    async fn test(int: i32) -> i32 {
-        int
+    async fn authenticate<'a>(context: &'a Context, username: String, email: String, pubkey: String) -> i32 {
+        authenticate(&context.db, &username, &email, &pubkey).await
     }
 }
 
